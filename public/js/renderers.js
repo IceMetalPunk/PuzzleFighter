@@ -6,6 +6,8 @@ export class OrbRenderer extends Renderable {
         this.type = type;
         this.sprite = new Sprite('../img/orbs.png', 0, type * 32, 32, 32, 4, 0.1);
         this.visible = true;
+        this.w = 32;
+        this.h = 32;
     }
     draw(canv, ctx, x = 0, y = 0) {
         super.draw(canv, ctx);

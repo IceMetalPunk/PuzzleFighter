@@ -1,13 +1,33 @@
 import * as Renderers from './renderers.js'
 
-export class Orb {
-    constructor(x = 0, y = 0, type = 0) {
+class ObjectEntity {
+    constructor(x = 0, y = 0) {
         this.x = x;
         this.y = y;
-        this.type = type;
-        this.renderer = new Renderers.OrbRenderer(type);
+    }
+    setBbox(left, top, right, bottom) {
+        this.bbox = {
+            left, top, right, bottom
+        };
+    }
+    getBbox() {
+        return this.bbox;
     }
     draw(canv, ctx) {
-        this.renderer.draw(canv, ctx, this.x, this.y);
+        if (this.renderer) {
+            this.renderer.draw(canv, ctx, this.x, this.y);
+        }
+    }
+    isAtPos(x,y) {
+        return x >= this.x + this.bbox.left && x <= this.x + this.bbox.right &&
+               y >= this.y + this.bbox.top && y <= this.y + this.bbox.bottom;
+    }
+}
+export class Orb extends ObjectEntity{
+    constructor(x = 0, y = 0, type = 0) {
+        super(x,y);
+        this.type = type;
+        this.renderer = new Renderers.OrbRenderer(type);
+        this.setBbox(-this.renderer.w/2, -this.renderer.h/2, this.renderer.w/2, this.renderer.h/2);
     }
 }

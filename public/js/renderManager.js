@@ -56,7 +56,7 @@ export class RenderManager {
         this.renderPipeline = this.renderPipeline.filter(existing => existing.renderable !== renderable);
     }
     draw() {
-        this.ctx.clearRect(0, 0, this.canvas.w, this.canvas.h);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.renderPipeline.forEach(entry => entry.renderable.draw(this.canvas, this.ctx));
     }
 };

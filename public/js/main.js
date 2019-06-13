@@ -18,10 +18,16 @@ const setup = function() {
     });
     objectList.push(orbGrid);
 
+    renderManager.start(60);
+
+    const collectObjectsAt = function(list, x, y) {
+        return list.flat(3).filter(obj => obj.isAtPos(x,y));
+    };
     inputManager.onClick((x,y) => {
         const clicked = collectObjectsAt(objectList, x, y);
-    })
-
-    renderManager.start(60);
+        clicked.forEach(obj => {
+            obj.renderer.visible = !obj.renderer.visible;
+        });
+    });
 }
 document.addEventListener('DOMContentLoaded', setup);
