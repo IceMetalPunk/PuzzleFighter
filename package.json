@@ -1,0 +1,31 @@
+{
+  "name": "PuzzleFighter",
+  "version": "1.0.0",
+  "description": "An online two-player puzzle fighter game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IceMetalPunk/PuzzleFighter.git"
+  },
+  "keywords": [
+    "puzzle",
+    "RPG",
+    "fighter",
+    "multiplayer",
+    "online",
+    "game"
+  ],
+  "author": "IceMetalPunk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IceMetalPunk/PuzzleFighter/issues"
+  },
+  "homepage": "https://github.com/IceMetalPunk/PuzzleFighter#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1"
+  }
+}
